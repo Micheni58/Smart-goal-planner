@@ -15,12 +15,12 @@ function App() {
     setGoals([...goals, newGoal]); 
   }
   function handleDelete(goalId){
-    fetch(`http://localhost:3000/goals/${goalId}`,{
+    fetchfetch(`http://localhost:3000/goals/${goalId}`,{
       method: "DELETE",
     })
     .then((res) =>{
       if(res.ok) {
-        setGoals((prevGoals) => prevGoals.filter((goal) => goal.id !== goalId))
+        setGoals((prevGoals) => prevGoals.filter((goal) => goal.id != goalId));
       }
     })
   }
@@ -32,7 +32,10 @@ function App() {
     <>
       <h1>App Component</h1>
       <GoalForm onAddGoal={handleAddGoal} />
-      {goalList}
+      <div className='cards'>
+         {goalList}
+      </div>
+     
     </>
   );
 }
