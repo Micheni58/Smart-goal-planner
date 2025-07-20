@@ -12,11 +12,11 @@ function GoalCard({goal}){
         <>
         <div className="goalCard">
         <h2>{goal.name}</h2>
-        <p>Amount: {goal.targetAmount}</p>
-        <p>Saved Amount: {goal.savedAmount}</p>
-        <p>Category: {goal.category}</p>
-        <p>Deadline: {goal.deadline}</p>
-        <p>Created At: {goal.createdAt}</p>
+        <p><b>Amount</b> {goal.targetAmount}</p>
+        <p><b>Saved Amount:</b> {goal.savedAmount}</p>
+        <p><b>Category: </b>{goal.category}</p>
+        <p><b>Deadline:</b> {goal.deadline}</p>
+        <p><b>Created At:</b> {goal.createdAt}</p>
         <button>Edit</button>
         <button>Delete</button>
         </div>        

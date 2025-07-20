@@ -1,27 +1,65 @@
-//   "id": "1",
-//   "name": "Travel Fund - Japan",
-//   "targetAmount": 5000,
-//   "savedAmount": 3200,
-//   "category": "Travel",
-//   "deadline": "2025-12-31",
-//   "createdAt": "2024-01-15"
+import React, { useState } from "react";
+import "./Form.css";
 
-function GoalForm(){
-    return(
-        <>
-        <h2>Enter New goal</h2>
+function GoalForm({ onAddGoal }) {
+  const [name, setName] = useState("");
+  const [amount, setAmount] = useState("");
+  const [savedAmount, setSavedAmount] = useState("");
+  const [category, setCategory] = useState("");
+  const [deadline, setDeadline] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const newGoal = {
+      name: name,
+      targetAmount: parseFloat(amount),
+      savedAmount: parseFloat(savedAmount),
+      category: category,
+      deadline: deadline,
+      createdAt: new Date().toISOString().split("T")[0],
+    };
+
+    fetch("http://localhost:3000/goals", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newGoal),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        onAddGoal(data); 
+        setName("");
+        setAmount("");
+        setSavedAmount("");
+        setCategory("");
+        setDeadline("");
+      });
+  }
+
+  return (
+    <div className="form">
+      <form onSubmit={handleSubmit}>
+        <h2>Enter New Goal</h2>
         <label>Name:</label><br />
-        <input type="text" name="" id="" placeholder="Enter Name" /><br />
+        <input type="text" placeholder="Enter Name" onChange={(e) => setName(e.target.value)} value={name} required/><br />
+
         <label>Amount:</label><br />
-        <input type="text" name="" id="" placeholder="Enter Amount"/><br />
-        <label>Saved amount:</label><br />
-        <input type="text" placeholder="Enter saved amount" /><br />
-        <label>Category</label><br />
-        <input type="text" name="" id=""  placeholder="Enter Category"/><br />
-        <label>Deadline</label><br />
-        <input type="text" placeholder="Enter Deadline" /><br />
-        <button>Add Goal</button>
-        </>
-    )
+        <input type="number" placeholder="Enter Amount" onChange={(e) => setAmount(e.target.value)} value={amount} required/><br />
+
+        <label>Saved Amount:</label><br />
+        <input type="number" placeholder="Enter Saved Amount" onChange={(e) => setSavedAmount(e.target.value)} value={savedAmount} required/><br />
+
+        <label>Category:</label><br />
+        <input type="text" placeholder="Enter Category" onChange={(e) => setCategory(e.target.value)} value={category} required /><br />
+
+        <label>Deadline:</label><br />
+        <input type="date" onChange={(e) => setDeadline(e.target.value)} value={deadline} required /><br />
+
+        <button type="submit">Add Goal</button>
+      </form>
+    </div>
+  );
 }
+
 export default GoalForm;
