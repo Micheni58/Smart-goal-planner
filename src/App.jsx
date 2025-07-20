@@ -30,7 +30,7 @@ function App() {
 
   return (
     <>
-      <h1>App Component</h1>
+      {/* <h1>App Component</h1> */}
       <GoalForm onAddGoal={handleAddGoal} />
       <div className='cards'>
          {goalList}

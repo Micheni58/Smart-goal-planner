@@ -15,14 +15,16 @@ function GoalCard({goal,onDelete}){
     return(
         <>
         <div className="goalCard">
-        <h2>{goal.name}</h2>
-        <p><b>Amount</b> {goal.targetAmount}</p>
-        <p><b>Saved Amount:</b> {goal.savedAmount}</p>
-        <p><b>Category: </b>{goal.category}</p>
-        <p><b>Deadline:</b> {goal.deadline}</p>
-        <p><b>Created At:</b> {goal.createdAt}</p>
-        <button>Edit</button>
-        <button onClick={handleDelete}>Delete</button>
+            <h2>{goal.name}</h2>
+            <p><b>Amount:</b> {goal.targetAmount}</p>
+            <p><b>Saved Amount:</b> {goal.savedAmount}</p>
+            <p><b>Category: </b>{goal.category}</p>
+            <p><b>Deadline:</b> {goal.deadline}</p>
+            <p><b>Created At:</b> {goal.createdAt}</p>
+           <div className="buttons">
+            <button className="btn-edit">Edit</button>
+            <button className="btn-delete"onClick={handleDelete}>Delete</button>
+           </div>
         </div>        
         
         </>

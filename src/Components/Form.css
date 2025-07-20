@@ -1,7 +1,13 @@
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 .form{
-    border: 2px solid black;
-    padding: 10px;
-    width: 30%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  
 }
 input{
     border: none;
@@ -10,5 +16,18 @@ input{
     padding: 10px;
 }
 input:hover{
-    background-color: yellow;
+    background-color: rgb(255, 248, 122);
+}
+.buttons{
+    display: flex;
+    gap: 40px;
+    
+}
+.btn-delete,.btn-edit{
+    padding: 10px;
+    width: 50%;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
 }
