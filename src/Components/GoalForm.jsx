@@ -56,7 +56,7 @@ function GoalForm({ onAddGoal }) {
         <label>Deadline:</label><br />
         <input type="date" onChange={(e) => setDeadline(e.target.value)} value={deadline} required /><br />
 
-        <button type="submit">Add Goal</button>
+        <button type="submit" className="add">Add Goal</button>
       </form>
     </div>
   );

@@ -11,3 +11,16 @@ body{
 .goalCard:hover{
     background-color: rgb(255, 248, 122);
 }
+.buttons{
+    display: flex;
+    gap: 40px;
+    
+}
+.btn-delete,.btn-edit{
+    padding: 10px;
+    width: 50%;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+}
