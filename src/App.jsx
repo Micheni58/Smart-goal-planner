@@ -2,6 +2,7 @@ import GoalCard from './Components/GoalCard';
 import './App.css';
 import GoalForm from './Components/GoalForm';
 import React, { useEffect, useState } from 'react';
+import ProgressCard from './Components/ProgressCard';
 function App() {
   const [goals, setGoals] = useState([]);
 
@@ -30,8 +31,10 @@ function App() {
 
   return (
     <>
-      {/* <h1>App Component</h1> */}
+      <div className='topbar'>
+      <ProgressCard />
       <GoalForm onAddGoal={handleAddGoal} />
+      </div>
       <div className='cards'>
          {goalList}
       </div>
