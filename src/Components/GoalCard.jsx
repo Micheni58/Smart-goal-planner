@@ -7,7 +7,11 @@
 //   "deadline": "2025-12-31",
 //   "createdAt": "2024-01-15"
 import "./Card.css"
-function GoalCard({goal}){
+
+function GoalCard({goal,onDelete}){
+    function handleDelete(){
+        onDelete(goal.id)
+    }
     return(
         <>
         <div className="goalCard">
@@ -18,7 +22,7 @@ function GoalCard({goal}){
         <p><b>Deadline:</b> {goal.deadline}</p>
         <p><b>Created At:</b> {goal.createdAt}</p>
         <button>Edit</button>
-        <button>Delete</button>
+        <button onClick={handleDelete}>Delete</button>
         </div>        
         
         </>

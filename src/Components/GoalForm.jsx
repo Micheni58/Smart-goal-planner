@@ -12,7 +12,7 @@ function GoalForm({ onAddGoal }) {
     e.preventDefault();
     const newGoal = {
       name: name,
-      targetAmount: parseFloat(amount),
+      targetAmount: parseFloat(amount),//Parse int will change the string to a number coz html inputs always return strings
       savedAmount: parseFloat(savedAmount),
       category: category,
       deadline: deadline,
@@ -21,10 +21,10 @@ function GoalForm({ onAddGoal }) {
 
     fetch("http://localhost:3000/goals", {
       method: "POST",
-      headers: {
+      headers: {//This tells us what kind of data were sending
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newGoal),
+      body: JSON.stringify(newGoal),//This will convert the new object(newgoal) to json string so the server can read
     })
       .then((res) => res.json())
       .then((data) => {
@@ -45,7 +45,7 @@ function GoalForm({ onAddGoal }) {
         <input type="text" placeholder="Enter Name" onChange={(e) => setName(e.target.value)} value={name} required/><br />
 
         <label>Amount:</label><br />
-        <input type="number" placeholder="Enter Amount" onChange={(e) => setAmount(e.target.value)} value={amount} required/><br />
+        <input type="number" placeholder="Enter  Target Amount" onChange={(e) => setAmount(e.target.value)} value={amount} required/><br />
 
         <label>Saved Amount:</label><br />
         <input type="number" placeholder="Enter Saved Amount" onChange={(e) => setSavedAmount(e.target.value)} value={savedAmount} required/><br />
